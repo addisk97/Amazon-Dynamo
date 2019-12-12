@@ -16,7 +16,7 @@ ASIN: 0827229534
     2003-12-14  cutomer: A2VE83MZF98ITY  rating: 5  votes:   6  helpful:   5
 
 Id:   2
-ASIN: 0738700797
+ASIN: 0804215715
   title: Candlemas: Feast of Flames
   group: Book
   salesrank: 168596
@@ -39,7 +39,7 @@ ASIN: 0738700797
     2005-2-7  cutomer:  ANEIANH0WAT9D  rating: 5  votes:   1  helpful:   1
 
 Id:   3
-ASIN: 0486287785
+ASIN: 156101074X
   title: World War II Allied Fighter Planes Trading Cards
   group: Book
   salesrank: 1270652
@@ -50,7 +50,7 @@ ASIN: 0486287785
     2003-7-10  cutomer: A3IDGASRQAW8B2  rating: 5  votes:   2  helpful:   2
 
 Id:   4
-ASIN: 0842328327
+ASIN: 0687023955
   title: Life Application Bible Commentary: 1 and 2 Timothy and Titus
   group: Book
   salesrank: 631289
@@ -65,7 +65,7 @@ ASIN: 0842328327
     2004-8-19  cutomer: A2591BUPXCS705  rating: 4  votes:   1  helpful:   1
 
 Id:   5
-ASIN: 1577943082
+ASIN: 0687074231
   title: Prayers That Avail Much for Business: Executive
   group: Book
   salesrank: 455160

@@ -5,7 +5,7 @@
 #open file and then parse data into what we are looking for
 def getData():
 
-    categories = []  # list of categories
+    categories = ""  # list of categories
     reviews = [] # dictionary of reviews
 
     product = {
@@ -45,11 +45,14 @@ def getData():
         elif line.startswith('categories'):
             numCategoires = line[12:].strip()
             numC = int(numCategoires)
+            categories = ""
             for i in range(numC):
                 line = f.readline()
                 category = []
-                category = line.strip().split('|')
-                categories.append(category)
+                #category = line.strip().split('|')
+                #print(category[1:])
+                categories = categories + line.strip() #categories + category[1:]
+                print(categories)
             product["categories"] = categories
 
         elif line.startswith('reviews:'):
@@ -75,14 +78,15 @@ def getData():
         elif line.startswith('discontinued'): #dont consider discontinued products
             dontAddProduct = 1
             product.clear()
-            categories.clear()
+            #categories.clear()
             reviews.clear()
 
 
         elif line == "" and dontAddProduct == 0:
             products.append(product)
+            avgRating = product['reviewInfo']['avgRating']
             product.clear()
-            categories.clear()
+            #categories.clear()
             reviews.clear()
 
 getData()

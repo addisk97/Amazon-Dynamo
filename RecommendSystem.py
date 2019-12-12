@@ -1,5 +1,10 @@
 
-""" Co-purchasing recommendation system
+"""
+
+Addisalem Kebede
+Big Data - Final Project
+
+Co-purchasing recommendation system
 
 Create a graph on a data storage server
 
@@ -7,13 +12,9 @@ Put data on the graph having similar (copurchased) products be edges
 
 Have edge weights be similarity of each of the products *
 
-Compute the degree of centrality of a node and store it in the node **
-
-Determine the top5 recommendations based on something
+Determine the top5 recommendations based on co-purchased data
 
 * need to decide what algorithm to use
-
-** need to cite the medium article in the paper
 
 """
 
@@ -21,7 +22,6 @@ Determine the top5 recommendations based on something
 
 import networkx as nx
 import math
-
 
 
 #open file and then parse data into what we are looking for
@@ -121,8 +121,8 @@ def getData():
 
     return products
 
+# get rid of products that have no co-purchased products
 def cleanData(products):
-    # get rid of products that have no co-purchased products
     delete = [key for key in products if len(products[key]["similar"]) == 0]
     for key in delete: del products[key]
 
@@ -166,6 +166,7 @@ def addToGraph(products):
 
     return graph
 
+#compute the cosine similarity of two products given the categories
 def getCosineSimilarity(set1, set2):
 
     #union the sets to see all possible categories
@@ -206,7 +207,6 @@ def getCosineSimilarity(set1, set2):
 
     return sim
 
-
 # make recommendations based on copurchased items and similarity of their categories
 # determine the order of similarity and return the ASINS of similar items
 def makeRecommendation(graph, products, ASIN):
@@ -225,21 +225,10 @@ def makeRecommendation(graph, products, ASIN):
         print(product["title"])
 
 
-
-
-
-
 products = getData() # gets a dictionary of all products with the ASIN as the key and a product info dictionary as the value
 products = cleanData(products)
 graph = addToGraph(products)
 makeRecommendation(graph, products, "0827229534")
-
-
-# need to put asins as nodes
-
-# makes sure copurchased asins exist as product asins
-
-
 
 
 

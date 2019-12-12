@@ -1,3 +1,19 @@
+"""
+Addisalem Kebede
+Big Data - Final Project
+
+Connect to Amazon's DynamoDB
+
+Create tables
+
+Parse data
+
+Add data to tables
+
+Query data using preset queries from tables
+
+"""
+
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 from decimal import *
@@ -8,8 +24,8 @@ from decimal import *
 # Get the service resource.
 dynamodb = boto3.resource('dynamodb',
                           endpoint_url='http://localhost:8000',
-                          aws_access_key_id='foo',
-                          aws_secret_access_key='bar',
+                          aws_access_key_id='keyid',
+                          aws_secret_access_key='secret',
                           verify=False)
 
 

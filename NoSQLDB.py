@@ -104,16 +104,14 @@ def createTables():
     return productTable, reviewTable
 
 #Get an existing table
-def getTable():
+def getTables():
     productTable = dynamodb.Table('Products')
-    customerTable = dynamodb.Table('Customer')
     reviewTable = dynamodb.Table('Review')
 
     print(productTable.creation_date_time)
-    print(customerTable.creation_date_time)
     print(reviewTable.creation_date_time)
 
-    return productTable, customerTable, reviewTable
+    return productTable, reviewTable
 
 #adding product item to product table
 def createProductItem(productTable, id, ASIN, title, group, salesRank, similar, categories, avgReview, totalReviews):
@@ -396,27 +394,10 @@ def parseAndInsert(productTable, reviewTable):
             reviews.clear()
 
 def main():
-    #productTable, reviewTable = createTables()
-    productTable = dynamodb.Table('Products')
-    reviewTable = dynamodb.Table('Review')
+    productTable, reviewTable = createTables()
+    productTable, reviewTable = getTables()
 
-    #productTable.delete()
-    #reviewTable.delete()
-    #parseAndInsert(productTable, reviewTable)
-
-
-    #1print(queryAllReivews(reviewTable, "Patterns of Preaching: A Sermon Sampler")) #-- Works
-    #2print(queryCustomerReivews(reviewTable, "A2JW67OY8U6HHK")) # -- Need to make customerId an index key: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html#GSI.scenario
-    #3print(queryProductASIN(productTable, "0827229534")) # -- Works
-    #4print(queryHelpfulGreater(reviewTable,"0827229534", 5)) #-- Works
-    #5print(queryProductAvgReview(productTable, "0486220125")) #-- Works
-    #6print(queryProductsOfCategory(productTable, "Books[283155]")) #-- works
-    #7print(querySimilarProducts(productTable,"0827229534")) #--works
-    #8print(queryVotesGreater(reviewTable, "0827229534", 3)) #-- works
-    #9print(queryProductsOfGroup(productTable, "Book")) #-- works
-    #10print(queryTitle(productTable, "Pa")) #-- works
-    #11print(queryReviewRatingBtwn(productTable, 4, 5))
-    #12print(queryAvgRatingGroupGT(productTable, "Book", 4))
+    parseAndInsert(productTable, reviewTable)
 
     done =1
     while(done == 1):
@@ -547,6 +528,9 @@ def main():
             print("That is not an acceptable query selection")
 
         done = int(input("\n\nWould you like to run another query? \n1 - Yes | 2 - No: "))
+
+    productTable.delete()
+    reviewTable.delete()
 
 def menu():
 
